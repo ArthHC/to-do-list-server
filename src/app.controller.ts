@@ -8,6 +8,6 @@ export class AppController {
   @Get()
   getHello(): string {
     // return this.appService.getHello();
-    return "teste teste teste 123";
+    return ('Hello Jenkins!');
   }
 }
