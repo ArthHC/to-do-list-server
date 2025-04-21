@@ -18,4 +18,12 @@ export class ToDoService {
   listAllTasks() {
     return this.prisma.to_do_list.findMany();
   }
+
+  removeTask(id: number) {
+    return this.prisma.to_do_list.delete({
+      where: {
+        id,
+      },
+    });
+  }
 }

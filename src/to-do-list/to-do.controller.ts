@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Res } from '@nestjs/common';
 import { ToDoService } from './to-do.service';
 import { Response } from 'express';
 
@@ -35,6 +35,23 @@ export class ToDoController {
       console.error(error);
       return res.status(500).json({
         message: 'Erro ao criar a tarefa',
+        error: error.message,
+      });
+    }
+  }
+
+  @Delete(':id')
+  async deleteTask(@Body() { id }: { id: number }, @Res() res: Response): Promise<any> {
+    try {
+      const result = await this.toDoService.removeTask(id);
+      return res.json({
+        ...result,
+        success: true,
+      });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({
+        message: 'Erro ao deletar a tarefa',
         error: error.message,
       });
     }
