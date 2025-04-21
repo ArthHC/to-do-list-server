@@ -15,7 +15,7 @@ export class ToDoService {
     return { message: 'To-do item added', task };
   }
 
-  getTodos(): string {
-    return 'Lista dos To-Dos';
+  listAllTasks() {
+    return this.prisma.to_do_list.findMany();
   }
 }
