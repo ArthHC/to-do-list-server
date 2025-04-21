@@ -6,6 +6,6 @@ import { PrismaModule } from 'src/prisma/prisma.module';
 @Module({
   imports: [PrismaModule],
   controllers: [ToDoController],
-  providers: [ToDoService,],
+  providers: [ToDoService],
 })
 export class ToDoModule {}
