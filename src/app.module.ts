@@ -6,7 +6,7 @@ import { ToDoController } from './to-do-list/to-do.controller';
 import { ToDoService } from './to-do-list/to-do.service';
 
 @Module({
-  imports: [ToDoModule],
+  imports: [],
   controllers: [AppController, ToDoController],
   providers: [AppService, ToDoService],
 })
