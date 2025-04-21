@@ -2,11 +2,11 @@ import { Body, Controller, Post, Res } from '@nestjs/common';
 import { ToDoService } from './to-do.service';
 import { Response } from 'express';
 
-@Controller()
+@Controller('todos')
 export class ToDoController {
   constructor(private readonly toDoService: ToDoService) {}
 
-  @Post('create')
+  @Post()
   async createTask(@Body() { title }: { title: string }, @Res() res: Response): Promise<any> {
     try {
       const result = await this.toDoService.addToDo(title);
