@@ -8,4 +8,4 @@ import { PrismaService } from 'src/prisma/prisma.service';
   controllers: [ToDoController],
   providers: [ToDoService],
 })
-export class AppModule {}
+export class ToDoModule {}
