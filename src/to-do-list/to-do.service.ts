@@ -14,4 +14,8 @@ export class ToDoService {
 
     return { message: 'To-do item added', task };
   }
+
+  getTodos(): string {
+    return 'Lista dos To-Dos';
+  }
 }

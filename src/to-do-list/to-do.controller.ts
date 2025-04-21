@@ -24,7 +24,12 @@ export class ToDoController {
   // }
 
   @Get()
-  getHello(): string {
+  getTodos(): string {
+    return 'Lista de To-Dos';
+  }
+  
+  @Get('list')
+  getListTasks(): string {
     return 'Lista de To-Dos';
   }
 
