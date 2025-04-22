@@ -31,7 +31,7 @@ export class ToDoService {
   async removeTask(id: number) {
     try {
       const task = await this.prisma.to_do_list.findUnique({
-        where: { id: id },
+        where: { id },
       });
 
       if (!task) {
@@ -39,7 +39,7 @@ export class ToDoService {
       }
 
       await this.prisma.to_do_list.delete({
-        where: { id: id },
+        where: { id },
       });
 
       return { message: 'Task removed successfully', task };

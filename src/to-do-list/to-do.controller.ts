@@ -1,10 +1,10 @@
-import { Body, Controller, Delete, Get, Post, Res } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Res } from '@nestjs/common';
 import { ToDoService } from './to-do.service';
 import { Response } from 'express';
 
 @Controller('todos')
 export class ToDoController {
-  constructor(private readonly toDoService: ToDoService) {}
+  constructor(private readonly toDoService: ToDoService) { }
 
   @Get()
   async getAllTasks(@Res() res: Response): Promise<any> {
@@ -41,9 +41,9 @@ export class ToDoController {
   }
 
   @Delete(':id')
-  async deleteTask(@Body() { id }: { id: number }, @Res() res: Response): Promise<any> {
+  async deleteTask(@Param('id') id: number, @Res() res: Response): Promise<any> {
     try {
-      const result = await this.toDoService.removeTask(id);
+      const result = await this.toDoService.removeTask(Number(id)); // Converta o id para número
       return res.json({
         ...result,
         success: true,
