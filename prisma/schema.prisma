@@ -18,3 +18,9 @@ model to_do_list {
   title     String
   createdAt DateTime @default(now())
 }
+
+model table_teste {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
